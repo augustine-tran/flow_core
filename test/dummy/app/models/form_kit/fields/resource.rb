@@ -2,8 +2,8 @@
 
 module FormKit::Fields
   class Resource < FormKit::Field
-    serialize :options, coder: Options
-    serialize :validations, coder: Validations
+    serialize :options, Options
+    serialize :validations, Validations
 
     def stored_type
       :integer

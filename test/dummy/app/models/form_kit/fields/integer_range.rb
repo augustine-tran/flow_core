@@ -2,8 +2,8 @@
 
 module FormKit::Fields
   class IntegerRange < FormKit::Field
-    serialize :validations, coder: Validations
-    serialize :options, coder: Options
+    serialize :validations, Validations
+    serialize :options, Options
 
     protected
 

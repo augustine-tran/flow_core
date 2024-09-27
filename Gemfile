@@ -13,16 +13,16 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-gem "sqlite3", "~> 2.1.0"
-# gem "pg", "~> 1.5.8"
+gem "sqlite3", "~> 1.4"
+# gem "pg", "~> 1.2"
 
 # To use a debugger
-# gem "byebug", group: %i[development test]
+gem "byebug", group: %i[development test]
 
 # Use Puma as the app server
 gem "puma"
 # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-gem "listen", "~> 3.9.0"
+gem "listen", "~> 3.3"
 gem "web-console", group: :development
 
 gem "rubocop"
@@ -31,6 +31,7 @@ gem "rubocop-rails"
 
 gem "cocoon"
 gem "kaminari"
+gem "validates_timeliness", "~> 5.0.0.beta1"
 gem "faker"
 
 gem "script_core"
@@ -50,6 +51,3 @@ gem "turbolinks"
 gem "selectize-rails"
 
 gem "graphviz"
-gem "mutex_m"
-gem "validates_timeliness", "~> 7.0.0.beta1"
-gem "debug", group: [:development, :test]

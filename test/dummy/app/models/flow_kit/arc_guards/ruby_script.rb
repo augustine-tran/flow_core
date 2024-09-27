@@ -2,7 +2,7 @@
 
 module FlowKit::ArcGuards
   class RubyScript < FlowCore::ArcGuard
-    serialize :configuration, coder: Configuration
+    serialize :configuration, Configuration
 
     def permit?(task)
       result = ScriptEngine.run_inline configuration.script, payload: task.payload

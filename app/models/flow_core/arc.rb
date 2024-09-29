@@ -10,10 +10,7 @@ module FlowCore
 
     has_many :guards, class_name: "FlowCore::ArcGuard", dependent: :delete_all
 
-    enum direction: {
-      in: 0,
-      out: 1
-    }
+    enum :direction, in: 0, out: 1
 
     validates :place,
               uniqueness: {

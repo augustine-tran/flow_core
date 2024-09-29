@@ -16,12 +16,7 @@ module FlowCore
 
     delegate :payload, to: :instance, prefix: :instance, allow_nil: false
 
-    enum stage: {
-      created: 0,
-      enabled: 1,
-      finished: 11,
-      terminated: 12
-    }
+    enum :stage, created: 0, enabled: 1, finished: 11, terminated: 12
 
     scope :errored, -> { where.not(errored_at: nil) }
     scope :suspended, -> { where.not(suspended_at: nil) }

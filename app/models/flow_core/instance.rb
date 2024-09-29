@@ -16,13 +16,7 @@ module FlowCore
 
     serialize :payload, coder: YAML
 
-    enum stage: {
-      created: 0,
-      activated: 1,
-      canceled: 2,
-      finished: 11,
-      terminated: 12
-    }
+    enum :stage, created: 0, activated: 1, canceled: 2, finished: 11, terminated: 12
 
     scope :errored, -> { where.not(errored_at: nil) }
     scope :suspended, -> { where.not(suspended_at: nil) }

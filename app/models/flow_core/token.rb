@@ -11,12 +11,7 @@ module FlowCore
     belongs_to :created_by_task, class_name: "FlowCore::Task", optional: true
     belongs_to :consumed_by_task, class_name: "FlowCore::Task", optional: true
 
-    enum stage: {
-      free: 0,
-      locked: 1,
-      consumed: 11,
-      terminated: 12
-    }
+    enum :stage, free: 0, locked: 1, consumed: 11, terminated: 12
 
     after_create :auto_create_task
     after_create :auto_enable_task

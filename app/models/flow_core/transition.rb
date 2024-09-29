@@ -4,7 +4,7 @@ module FlowCore
   class Transition < FlowCore::ApplicationRecord
     self.table_name = "flow_core_transitions"
 
-    FORBIDDEN_ATTRIBUTES = %i[workflow_id created_at updated_at].freeze
+    FORBIDDEN_ATTRIBUTES = %i[workflow_id created_at updated_at].freeze unless const_defined?(:FORBIDDEN_ATTRIBUTES)
 
     belongs_to :generated_by,
                class_name: "FlowCore::Step", foreign_key: :generated_by_step_id,
@@ -23,15 +23,9 @@ module FlowCore
 
     has_one :trigger, class_name: "FlowCore::TransitionTrigger", dependent: :delete
 
-    enum output_token_create_strategy: {
-      petri_net: 0,
-      match_one_or_fallback: 1
-    }, _suffix: :strategy
+    enum :output_token_create_strategy, { petri_net: 0, match_one_or_fallback: 1 }, suffix: :strategy
 
-    enum auto_finish_strategy: {
-      disabled: 0,
-      synchronously: 1
-    }, _prefix: :auto_finish
+    enum :auto_finish_strategy, { disabled: 0, synchronously: 1 }, prefix: :auto_finish
 
     accepts_nested_attributes_for :trigger
 
